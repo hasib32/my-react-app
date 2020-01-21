@@ -2,6 +2,7 @@ import React from 'react';
 import SignIn from "./SignIn";
 import About from "./About";
 import Users from "./User";
+import SignUpForm from "./Signup";
 import {
     BrowserRouter as Router,
     Switch,
@@ -31,6 +32,9 @@ function App() {
                           <li>
                               <Link to="/users">User</Link>
                           </li>
+                          <li>
+                              <Link to="/signup">Sign Up</Link>
+                          </li>
                       </ul>
                   </nav>
                   <h1>React Home Page</h1>
@@ -43,6 +47,9 @@ function App() {
                       </Route>
                       <Route path="/users">
                           <Users/>
+                      </Route>
+                      <Route path="/signup">
+                          <SignUpForm/>
                       </Route>
                   </Switch>
               </div>

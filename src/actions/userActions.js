@@ -5,7 +5,7 @@ import axios from 'axios'
 export const fetchUsers = () => dispatch => {
     const config = {
         headers: {
-            "Authorization": "Token 36e8a40f74f5919522995bc91caeb898875a743c",
+            "Authorization": "Token c2daaaff83141f62378efcd1330f9f0ab2c172a3",
         }
     }
     axios.get('http://127.0.0.1:8007/api/users',config)
@@ -18,7 +18,7 @@ export const fetchUsers = () => dispatch => {
 
 export const addUser = data => dispatch => {
     dispatch({
-        type: FETCH_USER,
+        type: ADD_USER,
         payload: data
     })
 }

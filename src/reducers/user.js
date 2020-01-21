@@ -1,11 +1,10 @@
 import {FETCH_USER, ADD_USER} from "../actions/types";
 
 const initialState = {
-    user: {},
-    users: [{
-        name : 'hasan',
-        email: 'my email'
-    }],
+    user: {
+        name: 'hasan'
+    },
+    users: [],
     isFetching: false,
     error: ''
 }
