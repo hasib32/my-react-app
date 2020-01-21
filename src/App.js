@@ -3,6 +3,7 @@ import SignIn from "./SignIn";
 import About from "./About";
 import Users from "./User";
 import SignUpForm from "./Signup";
+import Server from "./Server";
 import {
     BrowserRouter as Router,
     Switch,
@@ -35,6 +36,9 @@ function App() {
                           <li>
                               <Link to="/signup">Sign Up</Link>
                           </li>
+                          <li>
+                              <Link to="/servers">Servers</Link>
+                          </li>
                       </ul>
                   </nav>
                   <h1>React Home Page</h1>
@@ -50,6 +54,9 @@ function App() {
                       </Route>
                       <Route path="/signup">
                           <SignUpForm/>
+                      </Route>
+                      <Route path="/servers">
+                          <Server/>
                       </Route>
                   </Switch>
               </div>

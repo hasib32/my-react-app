@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import Button from '@material-ui/core/Button';
 import {fetchUsers, addUser} from "./actions/userActions";
 import { useForm } from 'react-hook-form';
-
+import useDocumentTitle from "./hooks/useDocumentTitle";
 
 function Users() {
     const [data, setData] = useState('');
     const user = useSelector(state => state.user)
+    let title = user.users.length > 0 ? user.users[0].email : 'user title'
+    useDocumentTitle(title)
 
     const dispatch = useDispatch()
 
