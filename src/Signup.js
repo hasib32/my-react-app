@@ -24,27 +24,25 @@ const SignUpForm = () => {
         initialValues: {
             email: '',
             firstName: '',
-            lastName: ''
+            lastName: '',
         },
         validationSchema: Yup.object({
             firstName: Yup.string()
                 .max(15, 'Must be 15 characters or less')
-                .required('Required'),
-            lastName: Yup.string()
-                .max(20, 'Must be 20 characters or less')
                 .required('Required'),
             email: Yup.string()
                 .email('Invalid email address')
                 .required('Required'),
         }),
         onSubmit: values => {
-            console.log(values)
+            formik.setSubmitting(false)
             alert(JSON.stringify(values, null, 2));
         },
     });
-
+    let isDisabled = !!formik.errors
     return (
         <form onSubmit={formik.handleSubmit} className={classes.root}>
+            {isDisabled}
             <TextField
                 name="firstName"
                 {...formik.getFieldProps('firstName')}
@@ -52,15 +50,6 @@ const SignUpForm = () => {
             {formik.touched.firstName && formik.errors.firstName ? (
                 <div>{formik.errors.firstName}</div>
             ) : null}
-            <TextField
-                id="lastName"
-                name="lastName"
-                type="text"
-                placeholder="Last Name"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.lastName}
-            />
             {formik.touched.lastName && formik.errors.lastName ? (
                 <div>{formik.errors.lastName}</div>
             ) : null}
@@ -76,7 +65,7 @@ const SignUpForm = () => {
             {formik.touched.email && formik.errors.email ? (
                 <div>{formik.errors.email}</div>
             ) : null}
-            <Button type="submit" variant="contained" color="primary">
+            <Button type="submit" variant="contained" color="primary" disabled={formik.isValidating || formik.isSubmitting}>
                 Submit
             </Button>
         </form>

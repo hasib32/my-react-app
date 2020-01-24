@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import {fetchUsers, addUser} from "./actions/userActions";
 import { useForm } from 'react-hook-form';
 import useDocumentTitle from "./hooks/useDocumentTitle";
+import { TextField } from '@material-ui/core';
 
 function Users() {
     const [data, setData] = useState('');
@@ -58,10 +59,10 @@ function Users() {
             <UserList users={user.users}></UserList>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input name="email" ref={register({ required: true })} /> {/* register an input */}
+                <TextField name="email" ref={register({ required: true })} /> {/* register an input */}
                 {errors.email && 'Email is required.'}
 
-                <input name="name" ref={register({ required: true })} />
+                <TextField name="name" ref={register({ required: true })} />
                 {errors.name && 'Name is required.'}
 
                 <input type="submit" />
